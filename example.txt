@@ -1,2 +1,41 @@
-Welcome to the file!
-This is the first line.
+The append_buffer function takes two arguments: 
+char *basin_buffer and char *read_buffer. 
+
+The purpose of this function is to concatenate the contents of 
+read_buffer to the end of basin_buffer and return the updated combined 
+string. To achieve this without causing any memory issues, the function 
+handles memory allocation and pointer reassignment smartly.
+
+When the append_buffer function is called, it receives the memory address 
+of basin_buffer as its first argument and the memory address of read_buffer 
+as its second argument. Since these are pointers, they represent memory 
+addresses rather than the actual data.
+
+To perform the concatenation, the function needs to create a new buffer 
+that is large enough to hold the combined data. The function dynamically 
+allocates memory for the new basin_buffer using the ft_strjoin function, 
+which takes the old basin_buffer and the read_buffer as arguments, and 
+concatenates them together into a new buffer. Crucially, the ft_strjoin 
+function ensures that sufficient memory is allocated for the new buffer, 
+considering both sets of data.
+
+After the data is successfully combined in the new basin_buffer, the function 
+then reassigns the pointer basin_buffer to point to the new memory address 
+containing the merged data. This is the smart reassignment that allows the 
+function to update the original basin_buffer outside of the function.
+
+By reassigning basin_buffer, the function effectively updates the original 
+pointer outside the function's scope. Now, the original basin_buffer points 
+to the newly created buffer that holds the merged data from both buffers 
+(basin_buffer and read_buffer).
+
+This smart reassignment ensures that the caller of the append_buffer 
+function receives the updated pointer, pointing to the combined data, 
+and any further operations or usage of basin_buffer outside the function 
+will reflect the changes made within the function.
+
+In conclusion, the append_buffer function demonstrates the concept of 
+passing pointers to modify the original pointer's value, allowing for 
+efficient data concatenation without causing memory leaks or loss of data. 
+This smart memory management and pointer reassignment make the function 
+reliable and safe when dealing with dynamically allocated memory in C.

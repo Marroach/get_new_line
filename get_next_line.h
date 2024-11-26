@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10 //???
+#  define BUFFER_SIZE 3 //can be set to whatever and should work with whatever
 # endif
 
 # include <fcntl.h> //???
